@@ -44,6 +44,7 @@ in changing environments?
   * Traits:
     * T1: NAND
     * T2: NOT
+    
 ### Data Collection
   * Population slicing: 50K Updates
   * Avg:
