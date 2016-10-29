@@ -35,6 +35,7 @@ in changing environments?
     * 200   (200 reps)
     * 400   (200 reps)
     * 800   (50  reps)
+    * 1600  (50  reps)
     * 25k   (50  reps)
   * Birth Method
     * Well Mixed (4)
@@ -44,7 +45,7 @@ in changing environments?
   * Traits:
     * T1: NAND
     * T2: NOT
-    
+
 ### Data Collection
   * Population slicing: 50K Updates
   * Avg:
