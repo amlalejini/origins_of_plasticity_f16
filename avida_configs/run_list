@@ -8,35 +8,35 @@ set beacon_priority y
 set config_dir /mnt/scratch/lalejini/oop_f16/configs
 set dest_dir /mnt/scratch/lalejini/oop_f16/data
 
-1..50 tasks_1__envs_1__cr_0 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_1__cr_0.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..50 tasks_2__envs_1__cr_0 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_1__cr_0.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50 tasks_1__envs_1__cr_0__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_1__cr_0.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50 tasks_2__envs_1__cr_0__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_1__cr_0.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
 
-1..50  tasks_1__envs_2__cr_1 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..50  tasks_1__envs_2__cr_25 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..200 tasks_1__envs_2__cr_50 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..200 tasks_1__envs_2__cr_100 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..200 tasks_1__envs_2__cr_200 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..200 tasks_1__envs_2__cr_400 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..50  tasks_1__envs_2__cr_800 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..50  tasks_1__envs_2__cr_1600 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
-1..50  tasks_1__envs_2__cr_25000 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50  tasks_1__envs_2__cr_1__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50  tasks_1__envs_2__cr_25__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..200 tasks_1__envs_2__cr_50__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..200 tasks_1__envs_2__cr_100__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..200 tasks_1__envs_2__cr_200__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..200 tasks_1__envs_2__cr_400__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50  tasks_1__envs_2__cr_800__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50  tasks_1__envs_2__cr_1600__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
+1..50  tasks_1__envs_2__cr_25000__mr_p0075 ./avida -c avida___tasks_1.cfg -s $seed -set EVENT_FILE events___tasks_1__envs_2__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_1.cfg -set BIRTH_METHOD 4
 
-1..50  tasks_2__envs_2__cr_1 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_2__cr_25 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_2__cr_50 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_2__cr_100 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_2__cr_200 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_2__cr_400 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_2__cr_800 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_2__cr_1600 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_2__cr_25000 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_2__cr_1__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_2__cr_25__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_2__cr_50__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_2__cr_100__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_2__cr_200__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_2__cr_400__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_2__cr_800__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_2__cr_1600__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_2__cr_25000__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_2__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
 
-1..50  tasks_2__envs_4__cr_1 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_4__cr_25 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_4__cr_50 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_4__cr_100 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_4__cr_200 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..200 tasks_2__envs_4__cr_400 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_4__cr_800 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_4__cr_1600 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
-1..50  tasks_2__envs_4__cr_25000 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_4__cr_1__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_1.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_4__cr_25__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_25.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_4__cr_50__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_50.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_4__cr_100__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_100.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_4__cr_200__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_200.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..200 tasks_2__envs_4__cr_400__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_400.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_4__cr_800__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_800.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_4__cr_1600__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_1600.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
+1..50  tasks_2__envs_4__cr_25000__mr_p0075 ./avida -c avida___tasks_2.cfg -s $seed -set EVENT_FILE events___tasks_2__envs_4__cr_25000.cfg -set ENVIRONMENT_FILE environment___tasks_2.cfg -set BIRTH_METHOD 4
