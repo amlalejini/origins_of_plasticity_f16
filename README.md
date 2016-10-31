@@ -18,11 +18,14 @@ in changing environments?
 ### Environments
   * Constant Environments (controls):
     * T1(+)
+    * T2(+)
     * T1(+)T2(+)
   * Changing Environments
-    * [T1(+), T1(-)]
+    * [T1(+), T1(-)]: NAND+, NAND-
+    * [T2(+), T2(-)]: NOT+, NOT-
     * [T1(+)T2(-), T1(-)T2(+)]
     * [T1(+)T2(+), T1(+)T2(-), T1(-)T2(+), T1(-)T2(-)]
+    * [T2(+)T1(+), T2(+)T1(-), T2(-)T1(+), T2(-)T1(-)]
   * Point Mutation Rates (Not yet)
     * Low: 0.0025
     * Baseline: 0.0075
@@ -48,5 +51,10 @@ in changing environments?
 
 ### Data Collection
   * Population slicing: 50K Updates
-  * Avg:
-  * Dom:
+
+### Naming scheme:
+  * <config file type>___<treatment arg>_<arg val>__<treatment arg>_<arg val>.... .cfg
+    * arg vals may be a list: <arg val>_<arg val>..._<arg val>
+  * For 2 task, 4 environment files:
+    * Order that tasks are listed indicates which task has a long cycle and which has short cycle
+      * <longest cycle>_..._<shortest cycle>
