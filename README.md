@@ -53,8 +53,8 @@ in changing environments?
   * Population slicing: 50K Updates
 
 ### Naming scheme:
-  * <config file type>___<treatment arg>_<arg val>__<treatment arg>_<arg val>.... .cfg
-    * arg vals may be a list: <arg val>_<arg val>..._<arg val>
+  * [config file type]___[treatment arg]_[arg val]__[treatment arg]_[arg val].... .cfg
+    * arg vals may be a list: [arg val]_[arg val]..._[arg val]
   * For 2 task, 4 environment files:
     * Order that tasks are listed indicates which task has a long cycle and which has short cycle
-      * <longest cycle>_..._<shortest cycle>
+      * [longest cycle]_..._[shortest cycle]
