@@ -10,9 +10,9 @@ set dest_dir /mnt/scratch/lalejini/oop_f16/data
 
 
 # Constant Environments (3): [NAND+], [NOT+], [NAND+,NOT+]
-1..50 ntasks_1__envs_1__cr_0__tasks_NAND__mr_p0075      ./avida -c avida___sensors_NAND -s $seed -set EVENT_FILE constant/events___ntasks_1__envs_1__cr_0__tasks_NAND.cfg -set ENVIRONMENT_FILE environment___ntasks_1__tasks_NAND.cfg -set BIRTH_METHOD 4
-1..20 ntasks_1__envs_1__cr_0__tasks_NOT__mr_p0075       ./avida -c avida___sensors_NOT -s $seed -set EVENT_FILE constant/events___ntasks_1__envs_1__cr_0__tasks_NOT.cfg -set ENVIRONMENT_FILE environment___ntasks_1__tasks_NOT.cfg -set BIRTH_METHOD 4
-1..50 ntasks_2__envs_1__cr_0__tasks_NAND_NOT__mr_p0075  ./avida -c avida___sensors_NAND_NOT -s $seed -set EVENT_FILE constant/events___ntasks_2__envs_1__cr_0__tasks_NAND_NOT.cfg -set ENVIRONMENT_FILE environment___ntasks_2__tasks_NAND_NOT.cfg -set BIRTH_METHOD 4
+1..50 ntasks_1__envs_1__cr_0__tasks_NAND__mr_p0075      ./avida -c avida___sensors_NAND.cfg -s $seed -set EVENT_FILE constant/events___ntasks_1__envs_1__cr_0__tasks_NAND.cfg -set ENVIRONMENT_FILE environment___ntasks_1__tasks_NAND.cfg -set BIRTH_METHOD 4
+1..20 ntasks_1__envs_1__cr_0__tasks_NOT__mr_p0075       ./avida -c avida___sensors_NOT.cfg -s $seed -set EVENT_FILE constant/events___ntasks_1__envs_1__cr_0__tasks_NOT.cfg -set ENVIRONMENT_FILE environment___ntasks_1__tasks_NOT.cfg -set BIRTH_METHOD 4
+1..50 ntasks_2__envs_1__cr_0__tasks_NAND_NOT__mr_p0075  ./avida -c avida___sensors_NAND_NOT.cfg -s $seed -set EVENT_FILE constant/events___ntasks_2__envs_1__cr_0__tasks_NAND_NOT.cfg -set ENVIRONMENT_FILE environment___ntasks_2__tasks_NAND_NOT.cfg -set BIRTH_METHOD 4
 
 # Changing Environments
 # [NAND+, NAND-]
