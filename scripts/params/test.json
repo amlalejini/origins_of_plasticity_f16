@@ -1,0 +1,92 @@
+{
+  "avida_analyses": {
+    "experiment_base_location": "/Users/amlalejini/Desktop/scratch/oopf16",
+    "avida_analysis_scripts_location": "../avida_analysis_configs",
+    "analysis_scripts_to_run": ["analyze_final_dominants.cfg"],
+    "final_update": 200000,
+    "treatments": {
+        "ntasks_1__envs_1__cr_0__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_1__tasks_NAND"},
+        "ntasks_1__envs_1__cr_0__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_1__tasks_NOT"},
+        "ntasks_2__envs_1__cr_0__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_1__tasks_NAND_NOT"},
+        "ntasks_1__envs_2__cr_1__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_25__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_50__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_100__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_200__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_400__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_800__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_1600__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_25000__tasks_NAND__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NAND"},
+        "ntasks_1__envs_2__cr_1__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_25__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_50__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_100__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_200__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_400__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_800__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_1600__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_1__envs_2__cr_25000__tasks_NOT__mr_p0075": {"settings": "ntasks_1__envs_2__tasks_NOT"},
+        "ntasks_2__envs_2__cr_1__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_25__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_50__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_100__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_200__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_400__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_800__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_1600__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_2__cr_25000__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_2__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_1__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_25__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_50__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_100__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_200__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_400__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_800__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_1600__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_25000__tasks_NAND_NOT__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NAND_NOT"},
+        "ntasks_2__envs_4__cr_1__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_25__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_50__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_100__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_200__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_400__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_800__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_1600__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"},
+        "ntasks_2__envs_4__cr_25000__tasks_NOT_NAND__mr_p0075": {"settings": "ntasks_2__envs_4__tasks_NOT_NAND"}
+      },
+    "treatment_settings": {
+      "ntasks_1__envs_1__tasks_NAND": {
+        "test_environments": ["REWARD_NAND"],
+        "replicates": [1, 50]
+      },
+      "ntasks_1__envs_1__tasks_NOT": {
+        "test_environments": ["REWARD_NOT"],
+        "replicates": [1, 20]
+      },
+      "ntasks_2__envs_1__tasks_NAND_NOT": {
+        "test_environments": ["REWARD_NAND_NOT"],
+        "replicates": [1, 50]
+      },
+      "ntasks_1__envs_2__tasks_NAND": {
+        "test_environments": ["REWARD_NAND", "PUNISH_NAND"],
+        "replicates": [1, 50]
+      },
+      "ntasks_1__envs_2__tasks_NOT": {
+        "test_environments": ["REWARD_NOT", "PUNISH_NOT"],
+        "replicates": [1, 20]
+      },
+      "ntasks_2__envs_2__tasks_NAND_NOT": {
+        "test_environments": ["REWARD_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
+        "replicates": [1, 50]
+      },
+      "ntasks_2__envs_4__tasks_NAND_NOT": {
+        "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
+        "replicates": [1, 50]
+      },
+      "ntasks_2__envs_4__tasks_NOT_NAND": {
+        "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
+        "replicates": [1, 20]
+      }
+    }
+  }
+}
