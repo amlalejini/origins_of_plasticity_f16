@@ -2,9 +2,29 @@
 Code/scripts for evolutionary origins of phenotypic plasticity experiments. Relevant for ALife Journal article.
 
 ## The Question
-What are the stepping stones for the evolution of phenotypic plasticity? Do these conditions seem to be
-robust under a few different conditions? Can we identify alternative strategies to phenotypic plasticity
-in changing environments?
+  * What are the stepping stones for the evolution of phenotypic plasticity?
+    * Unconditional expression before conditional expression?
+      - Unconditional expression -- express the same phenotype across all environments.
+      - Conditional expression -- phenotypic expression is a function of the environment (in some way).
+      - To test: Check lineages for cases where unconditional expression evolves before conditional expression.
+    * Imprecise/sub-optimal plasticity before optimal plasticity?
+      - Optimal plasticity -- phenotype is able to be regulated to perfectly match the environment.
+      - Sub-optimal plasticity -- conditional expression, but not optimal.
+        * Adaptive sub-optimal plasticity -- in total, plasticity results in better fitness than could have been achieved
+          via unconditional trait expression.
+        * Neutral sub-optimal plasticity -- in total, plasticity results in fitness equal to what could have been
+          achieved via unconditional trait expression.
+        * Mal-adaptive sub-optimal plasticity -- in total, plasticity results in fitness lower to what could have been
+          achieved via unconditional trait expression.
+        * In the above definitions, I have several options for fitness: actual fitness scores, simplified fitness
+          calculation based only on traits expressed (reward: +1, punish: -1, nothing: 0)
+        * Another note: I should be careful to also take into consideration the environmental background.
+          Some things may look mal-adaptive as a whole, but at long env. cycle rates, only the current environment
+          actually matters. Is there some way to quantify selective pressure given rate of environmental change? How much
+          pressure on average is there for traits?
+  * Do these conditions seem to be robust under a few different conditions?
+  * Can we identify alternative strategies to phenotypic plasticity in changing environments?
+  * When do these alternative strategies emerge?
 
 ## Hypotheses:
   * Stepping stones:
@@ -12,6 +32,8 @@ in changing environments?
     * Imprecise, but still beneficial plasticity before perfect plasticity (this is more useful for EC).
   * Alternative strategies:
     * Bet-hedging will emerge as a viable strategy as an alternative to phenotypic plasticity at certain cycle rates.
+  * At higher environmental change rates, plastic machinery is harder to maintain because of relaxed selection
+    pressure.
 
 ## Experimental Design
 
@@ -22,11 +44,21 @@ in changing environments?
     * T2(+):      [NOT+]
     * T1(+)T2(+): [NAND+NOT+]
   * Changing Environments
-    * [T1(+), T1(-)]:                                   [NAND+, NAND-]
-    * [T2(+), T2(-)]:                                   [NOT+, NOT-]
-    * [T1(+)T2(-), T1(-)T2(+)]:                         [NAND+NOT-, NOT-NAND+]
-    * [T1(+)T2(+), T1(+)T2(-), T1(-)T2(+), T1(-)T2(-)]: [NAND+NOT+, NAND+NOT-, NAND-NOT+, NAND-NOT-]
-    * [T2(+)T1(+), T2(+)T1(-), T2(-)T1(+), T2(-)T1(-)]: [NOT+NAND+, NOT+NAND-, NOT-NAND+, NOT-NAND-]
+    * Traits: 1, Sensors: 1, Actuators: 1, Environments: 2
+      * [T1(+), T1(-)]:                                   [NAND+, NAND-]
+      * [T2(+), T2(-)]:                                   [NOT+, NOT-]
+
+    * Traits: 2, Sensors: 2 (only need 1), Actuators: 2, Environments: 2
+      * [T1(+)T2(-), T1(-)T2(+)]:                         [NAND+NOT-, NOT-NAND+]
+
+    * Traits: 2, Sensors: 2, Actuators: 2, Environments: 4
+      * STYLE -- 1
+        * [T1(+)T2(+), T1(+)T2(-), T1(-)T2(+), T1(-)T2(-)]: [NAND+NOT+, NAND+NOT-, NAND-NOT+, NAND-NOT-]
+        * [T2(+)T1(+), T2(+)T1(-), T2(-)T1(+), T2(-)T1(-)]: [NOT+NAND+, NOT+NAND-, NOT-NAND+, NOT-NAND-]
+      * STYLE -- 2
+        * [T1(+)T2(-), T1(+)T2(+), T1(-)T2(+), T1(-)T2(-)]
+        * [T2(+)T1(-), T2(+)T2(+), T2(-)T1(+), T2(-)T1(-)]
+
   * Point Mutation Rates (Not yet)
     * Low: 0.0025
     * Baseline: 0.0075
@@ -66,4 +98,4 @@ in changing environments?
     * Trace on final dominant
 
 ## Post Avida Analyses
-  * 
+  *
