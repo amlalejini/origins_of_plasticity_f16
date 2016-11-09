@@ -98,4 +98,15 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * Trace on final dominant
 
 ## Post Avida Analyses
-  *
+  * Phenotype encoding (Bit ordering top to bottom left to right):
+    * Ordering:
+      * T1-T2-:T1, T1-T2-:T2
+      * T1-T2+:T1, T1-T2+:T2
+      * T1+T2-:T1, T1+T2-:T2
+      * T1+T2+:T1, T1+T2+:T2
+      * T1-:T1
+      * T1+:T1
+      * T2-:T2
+      * T2+:T2
+    * 1: organism expressed trait in that environment.
+    * 0: organism did not express trait in environment.

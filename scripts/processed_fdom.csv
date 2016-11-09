@@ -1,0 +1,6 @@
+treatment,replicate,tree_depth,is_plastic,is_optimal,phenotype_score,max_phenotype_score,phenotype_signature,phenotype_by_env,generation_length_by_env,fitness_by_env,env_order
+ntasks_1__envs_1__cr_0__tasks_NAND__mr_p0075,1,4992,0,1,1,1,1,1,270,0.948148,REWARD_NAND
+ntasks_1__envs_2__cr_400__tasks_NAND__mr_p0075,1,4867,1,1,1,1,01,0|1,246|245,0.471545|0.938776,PUNISH_NAND|REWARD_NAND
+ntasks_1__envs_2__cr_25000__tasks_NOT__mr_p0075,1,4353,0,0,0,1,00,0|0,46|46,0.695652|0.695652,PUNISH_NOT|REWARD_NOT
+ntasks_2__envs_2__cr_800__tasks_NAND_NOT__mr_p0075,1,4895,0,0,1,4,010101,01|01|01,196|196|196,1|0.25|1,REWARD_NOT__PUNISH_NAND|REWARD_NAND__PUNISH_NOT|REWARD_NAND_NOT
+ntasks_2__envs_4__cr_100__tasks_NAND_NOT__mr_p0075,1,4310,1,0,1,4,01010001,01|01|00|01,243|243|243|243,0.938272|0.938272|0.469136|0.938272,PUNISH_NAND_NOT|REWARD_NOT__PUNISH_NAND|REWARD_NAND__PUNISH_NOT|REWARD_NAND_NOT

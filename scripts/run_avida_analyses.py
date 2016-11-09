@@ -18,7 +18,7 @@ def main():
         exit(-1)
     # Load settings file.
     with open(settings_fn) as fp:
-        settings = json.load(fp)["avida_analyses"]
+        settings = json.load(fp)
     # Pull out locations of interest.
     experiment_base_loc = settings["experiment_base_location"]
     data_loc = os.path.join(experiment_base_loc, "data")
@@ -36,11 +36,12 @@ def main():
     #
     analyses = settings["analysis_scripts_to_run"]
     # Find all things to analyze.
-    treatments = settings["treatments"]
-    # Hack for testing
-    #testing_treatments = ["_".join(name.split("_")[:len(name.split("_")) - 1]) for name in os.listdir(data_loc) if "ntasks_" in name and os.path.isdir(os.path.join(data_loc, name))]
-    #print set(testing_treatments)
-    #for treatment in testing_treatments:
+    treatments = None
+    if settings["run_avida_analyses_settings"]["treatments_to_analyze"] == "all":
+        treatments = settings["treatments"].keys()
+    else:
+        treatments = settings["run_avida_analyses_settings"]["treatments_to_analyze"]
+
     for treatment in treatments:
         print "Analyzing %s" % treatment
         treatment_settings = settings["treatment_settings"][treatments[treatment]["settings"]]
