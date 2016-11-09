@@ -13,7 +13,7 @@ Data files:
     * treatment, rep, plastic, phenotype, generation length, fitness, tree depth
 """
 
-import json, sys, os
+import json, sys, os, datetime
 from utilities.utilities import *
 from utilities.parse_avida_output import *
 
@@ -98,7 +98,7 @@ def main():
     reps_by_treatment = {t:[r for r in os.listdir(experiment_analysis_loc) if t in r] for t in treatments_to_process}
     # Prepare data file.
     header_attrs = ["treatment", "replicate", "tree_depth", "is_plastic", "is_optimal", "phenotype_score", "max_phenotype_score", "phenotype_signature", "phenotype_by_env", "generation_length_by_env", "fitness_by_env", "env_order"]
-    data_fpath = "processed_fdom.csv"
+    data_fpath = os.path.join(experiment_processed_loc, "processed_fdom__%s.csv" % str(datetime.datetime.now()).split(" ")[0])
     with open(data_fpath, "w") as fp:
         fp.write(",".join(header_attrs) + "\n")
     for treatment in treatments_to_process:
