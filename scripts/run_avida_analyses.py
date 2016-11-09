@@ -38,10 +38,12 @@ def main():
     # Find all things to analyze.
     treatments = None
     if settings["run_avida_analyses_settings"]["treatments_to_analyze"] == "all":
-        treatments = settings["treatments"].keys()
+        treatments = settings["treatments"]
     else:
-        treatments = settings["run_avida_analyses_settings"]["treatments_to_analyze"]
-
+        treatments_to_analyze = settings["run_avida_analyses_settings"]["treatments_to_analyze"]
+        treatments = {t:settings["treatments"][t] for t in treatments_to_analyze}
+        
+    print "Treatments to analyze: " + str(treatments)
     for treatment in treatments:
         print "Analyzing %s" % treatment
         treatment_settings = settings["treatment_settings"][treatments[treatment]["settings"]]
