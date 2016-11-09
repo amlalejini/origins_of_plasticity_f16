@@ -1,5 +1,5 @@
 {
-  "experiment_base_location": "/mnt/scratch/lalejini/oop_f16",
+  "experiment_base_location": "/mnt/home/lalejini/Data/oop_f16",
   "avida_analysis_scripts_location": "../avida_analysis_configs",
   "analysis_scripts_to_run": ["analyze_final_dominants.cfg"],
   "final_update": 200000,
