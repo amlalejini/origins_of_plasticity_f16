@@ -31,7 +31,7 @@ def main():
         """
         Given a treatment, look in settings for relevant environments.
         """
-        return settings["treatment_settings"][settings["treatments"][treatment]["settings"]]["test_environments"]
+        return settings["treatment_settings"][settings["treatments"][treatment]["settings"]]["experienced_environments"]
     def GetEnvironmentTasks(environment):
         """
         Given an environment, return the tasks that were in the environment.
