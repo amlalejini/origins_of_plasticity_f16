@@ -52,7 +52,7 @@ def main():
         if environment in CalcMaxPhenotypeScoreMemo:
             return CalcMaxPhenotypeScoreMemo[environment]
         # If not, calculate the max score:
-        something = {thing.split("_")[0]:set(thing.split("_")[1:]) for thing in env.split("__")}
+        something = {thing.split("_")[0]:set(thing.split("_")[1:]) for thing in environment.split("__")}
         if "REWARD" in something: return len(something["REWARD"])
         return 0
     def GetPhenotypeScore(phenotype_by_env):

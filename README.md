@@ -110,3 +110,18 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
       * T2+:T2
     * 1: organism expressed trait in that environment.
     * 0: organism did not express trait in environment.
+
+## To do list:
+  * Manage new env data
+  * (1) Process lineages (from avida analyze mode) -> .csv
+    * Script written
+  * Visualize lineage phenotypes
+  * Analysis: unconditional expression before conditional expression? (trait by trait)
+  * Analysis: sub-optimal plasticity before optimal plasticity?
+  * Characterize plasticity in genome (how tight is regulation with expression)?
+    * Physical modularity; functional modularity
+  * Alternative strategies? -- Dependency: visualization.
+  * Seeds for division of labor experiments: how to set this up?
+  * (2) More change rates between (1:25)? Yes: 3, 6, 12
+  * Process/analyze data from new env runs.
+  * (3) Block stepping runs for env 2, traits 2
