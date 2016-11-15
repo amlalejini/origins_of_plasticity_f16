@@ -97,7 +97,7 @@ def main():
 
     # Prepare data file.
     # * treatment, rep, final_is_plastic, final_is_optimal, final_phenotype_score, final_phenotype_signature, phenotype_signature_sequence, ...keys...
-    header_attrs = ["treatment", "replicate", "final_is_plastic", "final_is_optimal", "final_phenotype_score", "max_phenotype_score", "enviroment_key", "lineage_phenotype_signature_sequence_abbrev", "lineage_phenotype_verbose_signature_sequence_abbrev", "lineage_phenotype_score_sequence_abbrev", "lineage_is_plastic_sequence_abbrev", "lineage_is_optimal_sequence_abbrev", "lineage_phenotype_start_updates_abbrev", "lineage_phenotype_duration_updates_abbrev"]
+    header_attrs = ["treatment", "replicate", "final_is_plastic", "final_is_optimal", "final_phenotype_score", "max_phenotype_score", "environment_key", "lineage_phenotype_signature_sequence_abbrev", "lineage_phenotype_verbose_signature_sequence_abbrev", "lineage_phenotype_score_sequence_abbrev", "lineage_is_plastic_sequence_abbrev", "lineage_is_optimal_sequence_abbrev", "lineage_phenotype_start_updates_abbrev", "lineage_phenotype_duration_updates_abbrev"]
     data_fpath = os.path.join(experiment_processed_loc, "processed_fdom_lineage__%s.csv" % str(datetime.datetime.now()).split(" ")[0])
     with open(data_fpath, "w") as fp:
         fp.write(",".join(header_attrs) + "\n")

@@ -111,6 +111,22 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * 1: organism expressed trait in that environment.
     * 0: organism did not express trait in environment.
 
+## Scripts
+  * get_fdom_lineage_results.py
+    * REQ: Analysis data from avida's analyze mode (analyze_final_dominants.cfg).
+    * Given analysis data, extract fdom lineage results.
+  * get_fdom_results.py
+    * REQ: Analysis data from avida's analyze mode (analyze_final_dominants.cfg).
+    * Given analysis data, extract fdom results.
+  * get_lineage_stepping_stones.py
+    * REQ: Output from get_fdom_lineage_results.py
+    * Given output of fdom_lineage_results script, get information on stepping stones:
+      * Unconditional plasticity before conditional plasticity?
+      * Sub-optimal plasticity before optimal plasticity?
+  * run_avida_analyses.py
+    * REQ: Data from run.
+    * Run Avida's analyze mode on data specified in settings.json
+
 ## To do list:
   * Manage new env data
   * (1) Process lineages (from avida analyze mode) -> .csv
