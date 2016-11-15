@@ -383,7 +383,8 @@ def main():
         fp.write(",".join(overview_header) + "\n")
     treatment_overview_content = ""
     ### Write details out to csv file ###
-    details_header = ["replicate",
+    details_header = ["treatment",
+                      "replicate",
                       "any_plasticity",
                       "any_adaptive_plasticity",
                       "any_optimal",
