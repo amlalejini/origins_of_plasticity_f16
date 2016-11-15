@@ -6,7 +6,7 @@ This script pulls out information on the evolutionary stepping stones for plasti
 Input:
     * settings file (.json)
     * fdom_lineage file (.csv)
-Output:
+Details Output:
     * treatment, rep,
         - (x) any_plasticity -- does this lineage have any plastic organisms?
         - (x) any_adaptive_plasticity -- does this lineage have any adaptively plastic organisms?
@@ -28,6 +28,25 @@ Output:
             -- ( ) time between not subopt before not opt
         - (x) any_subopt_before_opt -- is completely optimal expression preceded by any form of suboptimal expression?
             -- ( ) time between subopt before opt
+
+Overview Output:
+    * treatment
+        - (x) total_reps -- How many replicates of this treatment are there?
+        - (x) any_plasticity_cnt -- How many reps have any plasticity?
+        - (x) any_adaptive_plasticity_cnt -- How many reps have any adaptive plasticity?
+        - (x) any_optimality_cnt -- How many reps have an optimal organism in them?
+        - (x) nand_uncon_before_nand_con_cnt -- In how many reps is nand expressed unconditionally before it is expressed conditionally?
+        - (x) nand_con_cnt -- In how many reps is nand expressed conditionally at some point?
+        - (x) not_uncon_before_not_con_cnt -- In how many reps is not expressed unconditionally before it is expressed conditionally?
+        - (x) not_con_cnt -- In how many reps is not expressed conditionally at some point?
+        - (x) any_uncon_before_con_cnt -- In how many reps is something expressed unconditionally before anything is expressed conditionally?
+        - (x) con_cnt -- In how many reps is something expressed conditionally?
+        - (x) nand_subopt_plastic_before_nand_opt_plastic_cnt -- In how many reps is nand expressed suboptimally plastic prior to being expressed optimally plastic?
+        - (x) nand_opt_plastic_cnt -- In how many reps is nand expressed optimally plastic?
+        - (x) not_subopt_plastic_before_not_opt_plastic_cnt -- In how many reps is not expressed suboptimally plastic prior to being expressed optimally plastic?
+        - (x) not_opt_plastic_cnt -- In how many reps is not expressed optimally plastic?
+        - (x) any_subopt_plastic_before_opt_plastic_cnt -- In how many reps is *anything* expressed sub-optimally plastic prior to being expressed optimally plastic?
+        - (x) any_opt_plastic_cnt -- In how many reps is there optimal plasticity?
 """
 
 import json, sys, os, datetime
@@ -63,6 +82,13 @@ def main():
             tasks = tasks.union(set(attr.split("_")[1:]))
         return [task for task in settings["phenotype_encoding"]["trait_order"] if task in tasks]
 
+    # Pull out some locations of interest.
+    experiment_base_loc = settings["experiment_base_location"]
+    experiment_analysis_loc = os.path.join(experiment_base_loc, "analysis")
+    experiment_processed_loc = os.path.join(experiment_base_loc, "processed")
+
+    # If it doesn't already exist, make the processed data location.
+    mkdir_p(experiment_processed_loc)
 
     content = None
     try:
@@ -72,6 +98,7 @@ def main():
     except:
         print "Failed to load specified data file."
         exit(-1)
+
     content = content.split("\n")
     header = [attr for attr in content[0].split(",")]
     content = content[1:]
@@ -314,14 +341,141 @@ def main():
         # Is the extant organism optimal?
         final_optimal = bool(int(rep_data["final_is_optimal"]))
 
-        print "Any plastic? " + str(any_plasticity)
-        print "Any adaptive plasticity? " + str(any_adaptive_plasticity)
-        print "Final plastic? " + str(lineage_is_plastic_seq[-1] == "1")
-        print "Any optimal? " + str(any_optimal)
-        print "Final optimal? " + str(final_optimal)
-        print "Start NAND uncon: " + str(first_nand_uncon_update)
-        print "Start NAND con: " + str(first_nand_con_update)
-        print "Nand uncon before con? " + str(nand_uncon_before_nand_con)
+        results_by_treatment[treatment].append({"replicate": rep_id,
+                                                "any_plasticity": any_plasticity,
+                                                "any_adaptive_plasticity": any_adaptive_plasticity,
+                                                "any_optimal": any_optimal,
+                                                "first_plastic_update": update_plastic,
+                                                "first_adaptively_plastic_update": update_adaptive_plastic,
+                                                "first_optimal_update": update_optimal,
+                                                "nand_uncon_before_nand_con": nand_uncon_before_nand_con,
+                                                "not_uncon_before_not_con": not_uncon_before_not_con,
+                                                "any_uncon_before_any_con": any_uncon_before_any_con,
+                                                "nand_subopt_plastic_before_nand_opt_plastic": nand_subopt_before_nand_opt,
+                                                "not_subopt_plastic_before_not_opt_plastic": not_subopt_before_not_opt,
+                                                "any_subopt_plastic_before_opt_plastic": any_subopt_plasticity_before_opt_plasticity,
+                                                "final_plastic": final_plastic,
+                                                "final_optimal": final_optimal
+                                                })
+
+
+    ### Generate overview stats ###
+    overview_header = ["total_reps",
+                       "any_plasticity_cnt",
+                       "any_adaptive_plasticity_cnt",
+                       "any_optimality_cnt",
+                       "nand_uncon_before_nand_con_cnt",
+                       "nand_con_cnt",
+                       "not_uncon_before_not_con_cnt",
+                       "not_con_cnt",
+                       "any_uncon_before_con_cnt",
+                       "con_cnt",
+                       "nand_subopt_plastic_before_nand_opt_plastic_cnt",
+                       "nand_opt_plastic_cnt",
+                       "not_subopt_plastic_before_not_opt_plastic_cnt",
+                       "not_opt_plastic_cnt",
+                       "any_subopt_plastic_before_opt_plastic_cnt",
+                       "any_opt_plastic_cnt"]
+    overview_fpath = os.path.join(experiment_processed_loc, "lineage_stepping_stones_overview__%s.csv" % str(datetime.datetime.now()).split(" ")[0])
+    with open(overview_fpath, "w") as fp:
+        fp.write(",".join(overview_header) + "\n")
+    treatment_overview_content = ""
+    ### Write details out to csv file ###
+    details_header = ["replicate",
+                      "any_plasticity",
+                      "any_adaptive_plasticity",
+                      "any_optimal",
+                      "first_plastic_update",
+                      "first_adaptively_plastic_update",
+                      "first_optimal_update",
+                      "nand_uncon_before_nand_con",
+                      "not_uncon_before_not_con",
+                      "any_uncon_before_any_con",
+                      "nand_subopt_plastic_before_nand_opt_plastic",
+                      "not_subopt_plastic_before_not_opt_plastic",
+                      "any_subopt_plastic_before_opt_plastic",
+                      "final_plastic",
+                      "final_optimal"]
+    details_fpath = os.path.join(experiment_processed_loc, "lineage_stepping_stones_details__%s.csv" % str(datetime.datetime.now()).split(" ")[0])
+    with open(details_fpath, "w") as fp:
+        fp.write(",".join(details_header) + "\n")
+
+    for treatment in results_by_treatment:
+        treatment_details_content = ""
+
+        total_reps = 0
+        any_plasticity_cnt = 0
+        any_adaptive_plasticity_cnt = 0
+        any_optimality_cnt = 0
+
+        nand_uncon_before_nand_con_cnt = 0
+        nand_con_cnt = 0
+        not_uncon_before_not_con_cnt = 0
+        not_con_cnt = 0
+        any_uncon_before_con_cnt = 0
+        con_cnt = 0
+
+        nand_subopt_plastic_before_nand_opt_plastic_cnt = 0
+        nand_opt_plastic_cnt = 0
+        not_subopt_plastic_before_not_opt_plastic_cnt = 0
+        not_opt_plastic_cnt = 0
+        any_subopt_plastic_before_opt_plastic_cnt = 0
+        any_opt_plastic_cnt = 0
+
+        for rep_results in results_by_treatment[treatment]:
+            # make details line for this replicate.
+            treatment_details_content += ",".join([str(rep_results[attr]) for attr in details_header]) + "\n"
+            total_reps += 1
+            if rep_results["any_plasticity"]:
+                any_plasticity_cnt += 1
+            if rep_results["any_adaptive_plasticity"]:
+                any_adaptive_plasticity_cnt += 1
+            if rep_results["any_optimal"]:
+                any_optimality_cnt += 1
+            # Uncon before con
+            if rep_results["nand_uncon_before_nand_con"] != None:
+                nand_con_cnt += 1
+                if rep_results["nand_uncon_before_nand_con"]: nand_uncon_before_nand_con_cnt += 1
+            if rep_results["not_uncon_before_not_con"] != None:
+                not_con_cnt += 1
+                if rep_results["not_uncon_before_not_con"]: not_uncon_before_not_con_cnt += 1
+            if rep_results["any_uncon_before_any_con"] != None:
+                con_cnt += 1
+                if rep_results["any_uncon_before_any_con"]: any_uncon_before_con_cnt += 1
+            # Sub-opt before opt
+            if rep_results["nand_subopt_plastic_before_nand_opt_plastic"] != None:
+                nand_opt_plastic_cnt += 1
+                if rep_results["nand_subopt_plastic_before_nand_opt_plastic"]: nand_subopt_plastic_before_nand_opt_plastic_cnt += 1
+            if rep_results["not_subopt_plastic_before_not_opt_plastic"] != None:
+                not_opt_plastic_cnt += 1
+                if rep_results["not_subopt_plastic_before_not_opt_plastic"]: not_subopt_plastic_before_not_opt_plastic_cnt += 1
+            if rep_results["any_subopt_plastic_before_opt_plastic"] != None:
+                any_opt_plastic_cnt += 1
+                if rep_results["any_subopt_plastic_before_opt_plastic"]: any_subopt_plastic_before_opt_plastic_cnt += 1
+        # Update details file.
+        with open(details_fpath, "a") as fp:
+            fp.write(treatment_details_content)
+
+        treatment_overview_content += ",".join(map(str, [total_reps,
+                                      any_plasticity_cnt,
+                                      any_adaptive_plasticity_cnt,
+                                      any_optimality_cnt,
+                                      nand_uncon_before_nand_con_cnt,
+                                      nand_con_cnt,
+                                      not_uncon_before_not_con_cnt,
+                                      not_con_cnt,
+                                      any_uncon_before_con_cnt,
+                                      con_cnt,
+                                      nand_subopt_plastic_before_nand_opt_plastic_cnt,
+                                      nand_opt_plastic_cnt,
+                                      not_subopt_plastic_before_not_opt_plastic_cnt,
+                                      not_opt_plastic_cnt,
+                                      any_subopt_plastic_before_opt_plastic_cnt,
+                                      any_opt_plastic_cnt])) + "\n"
+    with open(overview_fpath, "a") as fp:
+        fp.write(treatment_overview_content)
+    print "Done"
+
 
 if __name__ == "__main__":
     main()

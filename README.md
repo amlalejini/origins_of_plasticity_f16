@@ -128,7 +128,6 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * Run Avida's analyze mode on data specified in settings.json
 
 ## To do list:
-  * Manage new env data
   * (1) Process lineages (from avida analyze mode) -> .csv
     * Script written
   * Visualize lineage phenotypes
@@ -141,3 +140,4 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
   * (2) More change rates between (1:25)? Yes: 3, 6, 12
   * Process/analyze data from new env runs.
   * (3) Block stepping runs for env 2, traits 2
+  * Visualize 'update_x' data as violin plots (should be interesting)
