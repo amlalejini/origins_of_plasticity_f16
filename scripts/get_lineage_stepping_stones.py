@@ -341,7 +341,8 @@ def main():
         # Is the extant organism optimal?
         final_optimal = bool(int(rep_data["final_is_optimal"]))
 
-        results_by_treatment[treatment].append({"replicate": rep_id,
+        results_by_treatment[treatment].append({"treatment": treatment,
+                                                "replicate": rep_id,
                                                 "any_plasticity": any_plasticity,
                                                 "any_adaptive_plasticity": any_adaptive_plasticity,
                                                 "any_optimal": any_optimal,
@@ -360,7 +361,8 @@ def main():
 
 
     ### Generate overview stats ###
-    overview_header = ["total_reps",
+    overview_header = ["treatment",
+                       "total_reps",
                        "any_plasticity_cnt",
                        "any_adaptive_plasticity_cnt",
                        "any_optimality_cnt",
@@ -456,7 +458,9 @@ def main():
         with open(details_fpath, "a") as fp:
             fp.write(treatment_details_content)
 
-        treatment_overview_content += ",".join(map(str, [total_reps,
+        treatment_overview_content += ",".join(map(str, [
+                                      treatment,
+                                      total_reps,
                                       any_plasticity_cnt,
                                       any_adaptive_plasticity_cnt,
                                       any_optimality_cnt,
