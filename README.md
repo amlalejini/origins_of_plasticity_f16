@@ -128,19 +128,14 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * Run Avida's analyze mode on data specified in settings.json
 
 ## To do list:
-  * Process lineages (from avida analyze mode) -> .csv
-    * Script written
-    * ** Running script **
   * Visualize lineage phenotypes
-  * Analysis: unconditional expression before conditional expression? (trait by trait)
-    ** Running scripts **
-  * Analysis: sub-optimal plasticity before optimal plasticity?
-    ** Running scripts **
+  * Visualize: unconditional expression before conditional expression? (trait by trait)
+  * Visualize: sub-optimal plasticity before optimal plasticity?
   * Characterize plasticity in genome (how tight is regulation with expression)?
     * Physical modularity; functional modularity
   * Alternative strategies? -- Dependency: visualization.
   * Seeds for division of labor experiments: how to set this up?
   * (2) More change rates between (1:25)? Yes: 3, 6, 12
-  * Process/analyze data from new env runs.
+    * Submit jobs
   * (3) Block stepping runs for env 2, traits 2
   * Visualize 'update_x' data as violin plots (should be interesting)
