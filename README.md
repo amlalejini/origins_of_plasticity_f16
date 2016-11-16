@@ -135,7 +135,6 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * Physical modularity; functional modularity
   * Alternative strategies? -- Dependency: visualization.
   * Seeds for division of labor experiments: how to set this up?
-  * (2) More change rates between (1:25)? Yes: 3, 6, 12
-    * Submit jobs
-  * (3) Block stepping runs for env 2, traits 2
+  * Process/analyze extra change rate treatments (3, 6, 12)
+  * (3) Block stepping runs for env 2, traits 2 (after change rate treatments finish)
   * Visualize 'update_x' data as violin plots (should be interesting)

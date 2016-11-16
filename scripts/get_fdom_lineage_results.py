@@ -228,7 +228,7 @@ def main():
                     abbrev_signature_verb_sequence.append(cur_signature_verb)
                     abbrev_total_score_sequence.append(cur_total_score)
                     abbrev_start_updates_sequence.append(cur_start)
-                    abbrev_duration_updates_sequence.append(cur_duration)
+                    abbrev_duration_updates_sequence.append(cur_duration + duration_update)
                     abbrev_is_plastic_sequence.append(cur_is_plastic)
                     abbrev_is_optimal_sequence.append(cur_is_optimal)
                 elif cur_phen_state == signature:
