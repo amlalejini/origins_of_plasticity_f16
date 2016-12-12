@@ -103,51 +103,61 @@
     },
   "treatment_settings": {
     "ntasks_1__envs_1__tasks_NAND": {
+      "human_readable_name": "CONSTANT -- NAND",
       "test_environments": ["REWARD_NAND"],
       "experienced_environments": ["REWARD_NAND"],
       "replicates": [1, 50]
     },
     "ntasks_1__envs_1__tasks_NOT": {
+      "human_readable_name": "CONSTANT -- NOT",
       "test_environments": ["REWARD_NOT"],
       "experienced_environments": ["REWARD_NOT"],
       "replicates": [1, 20]
     },
     "ntasks_2__envs_1__tasks_NAND_NOT": {
+      "human_readable_name": "CONSTANT -- NAND NOT",
       "test_environments": ["REWARD_NAND_NOT"],
       "experienced_environments": ["REWARD_NAND_NOT"],
       "replicates": [1, 50]
     },
     "ntasks_1__envs_2__tasks_NAND": {
+      "human_readable_name": "ENV 2 -- NAND",
       "test_environments": ["REWARD_NAND", "PUNISH_NAND"],
       "experienced_environments": ["REWARD_NAND", "PUNISH_NAND"],
       "replicates": [1, 50]
     },
     "ntasks_1__envs_2__tasks_NOT": {
+      "human_readable_name": "ENV 2 -- NOT",
       "test_environments": ["REWARD_NOT", "PUNISH_NOT"],
       "experienced_environments": ["REWARD_NOT", "PUNISH_NOT"],
       "replicates": [1, 20]
     },
     "ntasks_2__envs_2__tasks_NAND_NOT": {
+      "human_readable_name": "ENV 2 -- NAND NOT",
       "test_environments": ["REWARD_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "experienced_environments": ["REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "replicates": [1, 50]
     },
     "ntasks_2__envs_4__tasks_NAND_NOT": {
+      "human_readable_name": "ENV 4 (style 1) -- NAND NOT",
       "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "experienced_environments": ["REWARD_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND", "PUNISH_NAND_NOT"],
       "replicates": [1, 50]
     },
     "ntasks_2__envs_4__tasks_NOT_NAND": {
+      "human_readable_name": "ENV 4 (style 1) -- NOT NAND",
       "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "experienced_environments": ["REWARD_NAND_NOT", "REWARD_NOT__PUNISH_NAND", "REWARD_NAND__PUNISH_NOT", "PUNISH_NAND_NOT"],
       "replicates": [1, 20]
     },
     "ntasks_2__envs_4__tasks_NAND_NOT__style_2": {
+      "human_readable_name": "ENV 4 (style 2) -- NAND NOT",
       "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "experienced_environments": ["REWARD_NAND__PUNISH_NOT", "REWARD_NAND_NOT", "REWARD_NOT__PUNISH_NAND", "PUNISH_NAND_NOT"],
       "replicates": [1, 50]
     },
     "ntasks_2__envs_4__tasks_NOT_NAND__style_2": {
+      "human_readable_name": "ENV 4 (style 2) -- NOT NAND",
       "test_environments": ["REWARD_NAND_NOT", "PUNISH_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "REWARD_NOT__PUNISH_NAND"],
       "experienced_environments": ["REWARD_NOT__PUNISH_NAND", "REWARD_NAND_NOT", "REWARD_NAND__PUNISH_NOT", "PUNISH_NAND_NOT"],
       "replicates": [1, 20]

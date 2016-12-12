@@ -1,0 +1,58 @@
+$NAND-color: cyan;
+$NOT-color: blue;
+
+$REW_ALL-color: gold;
+$PUN_ALL-color: darken(red, 10);
+
+.env_canvas {
+
+  .REWARD_NAND {
+    fill: $NAND-color;
+  }
+  .PUNISH_NAND {
+    fill: red;
+  }
+
+  .REWARD_NOT {
+    fill: $NOT-color;
+  }
+  .PUNISH_NOT {
+    fill: red;
+  }
+
+  .REWARD_NAND_NOT {
+    fill: $REW_ALL-color;
+  }
+
+  .REWARD_NAND__PUNISH_NOT {
+    fill: $NAND-color;
+  }
+
+  .REWARD_NOT__PUNISH_NAND {
+    fill: $NOT-color;
+  }
+
+  .PUNISH_NAND_NOT {
+    fill: $PUN_ALL-color;
+  }
+}
+
+.axis {
+  path {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+  text {
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+}
+
+.x_axis {
+  @extend .axis;
+}
+
+.y_axis {
+  @extend .axis;
+}

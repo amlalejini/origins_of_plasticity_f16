@@ -1,0 +1,26 @@
+.env_canvas .REWARD_NAND {
+  fill: cyan; }
+.env_canvas .PUNISH_NAND {
+  fill: red; }
+.env_canvas .REWARD_NOT {
+  fill: blue; }
+.env_canvas .PUNISH_NOT {
+  fill: red; }
+.env_canvas .REWARD_NAND_NOT {
+  fill: gold; }
+.env_canvas .REWARD_NAND__PUNISH_NOT {
+  fill: cyan; }
+.env_canvas .REWARD_NOT__PUNISH_NAND {
+  fill: blue; }
+.env_canvas .PUNISH_NAND_NOT {
+  fill: #cc0000; }
+
+.axis path, .x_axis path, .y_axis path {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges; }
+.axis text, .x_axis text, .y_axis text {
+  font-family: sans-serif;
+  font-size: 18px; }
+
+/*# sourceMappingURL=lineage_visualization.css.map */

@@ -128,9 +128,24 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
     * Run Avida's analyze mode on data specified in settings.json
 
 ## To do list:
+  * ** Debug cases where any uncon before con is < more specific cases.
   * Visualize lineage phenotypes
-  * Visualize: unconditional expression before conditional expression? (trait by trait)
-  * Visualize: sub-optimal plasticity before optimal plasticity?
+    * Draft done. Todo: finish, clean up
+
+  * Stepping stones graphs:
+    * ( ) Nand uncon before nand con?
+      * nand uncon before nand con cnt / nand con cnt
+    * ( ) NOT uncon before not con?
+      * not uncon before not con cnt / not con cnt
+    * ( ) any uncon before con cnt / con cnt
+      * Any uncon before any con?
+    * ( ) Sub-opt nand plast before opt plast nand?
+      * nand_subopt_plastic_before_nand_opt_plastic_cnt / nand_opt_plastic_cnt
+    * ( ) Sub-opt not plast before opt plast not?
+      * not_subopt_plastic_before_not_opt_plastic_cnt / not_opt_plastic_cnt
+    * ( ) Sub-opt plast before opt plast?
+      * any_subopt_plastic_before_opt_plastic_cnt / any_opt_plastic_cnt  
+
   * Characterize plasticity in genome (how tight is regulation with expression)?
     * Physical modularity; functional modularity
   * Alternative strategies? -- Dependency: visualization.
@@ -138,3 +153,8 @@ Code/scripts for evolutionary origins of phenotypic plasticity experiments. Rele
   * Process/analyze extra change rate treatments (3, 6, 12)
   * (3) Block stepping runs for env 2, traits 2 (after change rate treatments finish)
   * Visualize 'update_x' data as violin plots (should be interesting)
+  * How hard is it to maintain plasticity?
+    * How many times is plasticity gained/lost?
+
+## Improvements over previous design:
+  * Ran for longer period of time, better chance for plasticity to evolve. 

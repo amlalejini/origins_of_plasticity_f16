@@ -177,7 +177,7 @@ def main():
             if "NAND" in tasks:
                 # Is NAND expressed unconditionally before being expressed conditionally?
                 # * Find first instance of unconditional nand expression.
-                # * Find first instance of conditional nand expression
+                # * Find first instance of conditional nand expression TODO: make sure NAND 0, 0, 0.. isn't counted. 
                 nand_expression = {env:decoded_phenotype_by_env[env]["NAND"] for env in decoded_phenotype_by_env}
                 nand_unconditional = len(set(nand_expression.values())) == 1 and "1" in set(nand_expression.values())
                 nand_conditional = len(set(nand_expression.values())) > 1

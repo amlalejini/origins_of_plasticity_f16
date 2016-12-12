@@ -1,7 +1,7 @@
 var DEFAULT_TREATMENT = "ntasks_2__envs_2__cr_800__tasks_NAND_NOT__mr_p0075";
 var SEQ_DELIMITER = "*";
 var ENV_DELIMITER = "|";
-var data_fpath = "data/processed_fdom_lineage__2016-11-15.csv";
+var data_fpath = "data/processed_fdom_lineage__2016-11-16.csv";
 var exp_settings = {
   "experiment_base_location": "/mnt/home/lalejini/Data/oop_f16",
   "avida_analysis_scripts_location": "../avida_analysis_configs",

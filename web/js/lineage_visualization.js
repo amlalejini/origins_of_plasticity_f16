@@ -16,17 +16,59 @@ var slicedRanges = [[0, 500], [95000, 105000], [195000, 200000]];
 var updateTickInterval = 500;
 
 var lineageSpacer = 3;
-var lineageWidth = 10;
+var lineageWidth = 20;
 var sliceSpacer = 50;
-var envWidth = 5;
+var envWidth = 10;
 var envSpacer = 5;
-var maxReps = 100;
+var maxReps = 75;
 
 var repsByTreatment = {};
 var envSequenceByTreatment = {};
 var treatments = [];
 var tasksByEnvironmentMemo = {};
 var maxScoreByTreatment = {};
+
+var getEnvTooltipHTML = function(env_data) {
+  var tt_content = "<div class='well'>" +
+                    "Environment: " + env_data.state +
+                    "<br/>Start Update: " + env_data.true_start +
+                    "<br/>Duration: " + env_data.true_duration +
+                    "</div>";
+  return tt_content;
+}
+
+var getLineageStateTooltipHTML = function(state_data) {
+  var phenotypeTable = "<table class='table table-striped'>";
+  var traitSet = new Set();
+  // Build header.
+  phenotypeTable += "<tr><th>Environment</th>";
+  for (env in state_data.phenotype) {
+    for (trait in state_data.phenotype[env]) {
+      traitSet.add(trait);
+    }
+  }
+  traitSet = [...traitSet];
+  for (var ti = 0; ti < traitSet.length; ti++) {
+    phenotypeTable += "<th>Trait: " + traitSet[ti] + "</th>";
+  }
+  phenotypeTable += "</tr>";
+  for (env in state_data.phenotype) {
+    phenotypeTable += "<tr><td>" + env + "</td>";
+    for (var ti = 0; ti < traitSet.length; ti++) {
+      phenotypeTable += "<td>" + state_data.phenotype[env][traitSet[ti]] + "</td>";
+    }
+    phenotypeTable += "</tr>";
+  }
+
+  phenotypeTable += "</table>"
+  var tt_content = "<div class='well'>" +
+                   "<br/>Start update: " + state_data.true_start  +
+                   "<br/>Duration: " + state_data.true_duration +
+                   "<br/>Phenotype Signature: " + state_data.state +
+                   "<br/>Phenotype: " + phenotypeTable +
+                   "</div>";
+  return tt_content;
+}
 
 var getTraitsExpressed = function(phenotype) {
   var traits_expressed = new Set();
@@ -122,10 +164,10 @@ var generateEnvironmentSequence = function(treatment) {
     if ((start_update + duration) > total_updates) {
       duration = total_updates - start_update;
     }
-    // Get the current environment.
-    cur_env = (cur_env + 1) % environments.length;
     // Add env to sequence.
     collapsed_seq.push({"state":environments[cur_env], "start":start_update, "duration":duration});
+    // Get the current environment.
+    cur_env = (cur_env + 1) % environments.length;
   }
   return collapsed_seq;
 }
@@ -405,9 +447,8 @@ var runVisualization = function(data) {
                     "class": function(d) { return d.state; }
                    });
     envBlocks.on("mouseover", function(d) {
-                               var cur_env = d.state;
                                return tooltip.style("visibility", "visible")
-                                             .html("Environment: " + cur_env + "<br/>Start Update: " + d.true_start + "<br/>Duration: " + d.true_duration);
+                                             .html(getEnvTooltipHTML(d));
                              })
               .on("mousemove", function() { return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); })
               .on("mouseout", function() { return tooltip.style("visibility", "hidden"); });
@@ -468,7 +509,7 @@ var runVisualization = function(data) {
                     });
                     stateBlocks.on("mouseover", function(d) {
                                   return tooltip.style("visibility", "visible")
-                                                .html("<br/>Start update: " + d.start  + "<br/>Duration: " + d.duration); })
+                                                .html(getLineageStateTooltipHTML(d)); })
                                 .on("mousemove", function() { return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); })
                                 .on("mouseout", function() { return tooltip.style("visibility", "hidden"); });
     });
