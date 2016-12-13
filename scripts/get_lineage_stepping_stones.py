@@ -177,7 +177,7 @@ def main():
             if "NAND" in tasks:
                 # Is NAND expressed unconditionally before being expressed conditionally?
                 # * Find first instance of unconditional nand expression.
-                # * Find first instance of conditional nand expression TODO: make sure NAND 0, 0, 0.. isn't counted. 
+                # * Find first instance of conditional nand expression TODO: make sure NAND 0, 0, 0.. isn't counted.
                 nand_expression = {env:decoded_phenotype_by_env[env]["NAND"] for env in decoded_phenotype_by_env}
                 nand_unconditional = len(set(nand_expression.values())) == 1 and "1" in set(nand_expression.values())
                 nand_conditional = len(set(nand_expression.values())) > 1
@@ -336,6 +336,22 @@ def main():
                 print "This is bad, and we shouldn't be here."
                 exit(-6)
 
+        # Is NAND expressed unconditionally in this replicate?
+        nand_uncon = first_nand_uncon_update != -1
+        nand_con = first_nand_con_update != -1
+        nand_subopt = first_suboptimal_nand_plasticity != -1
+        nand_opt = first_optimal_nand_plasticity != -1
+        # Is NOT expressed unconditionally in this replicate?
+        not_uncon = first_not_uncon_update != -1
+        not_con = first_not_con_update != -1
+        not_subopt = first_suboptimal_not_plasticity != -1
+        not_opt = first_optimal_not_plasticity != -1
+        # Is any trait expressed unconditionally in this replicate?
+        any_uncon = first_uncon_update != -1
+        any_con = first_con_update != -1
+        any_subopt = first_suboptimal_plasticity != -1
+        any_opt = first_optimal_plasticity != -1
+
         # Is the extant organism plastic?
         final_plastic = bool(int(rep_data["final_is_plastic"]))
         # Is the extant organism optimal?
@@ -356,11 +372,40 @@ def main():
                                                 "not_subopt_plastic_before_not_opt_plastic": not_subopt_before_not_opt,
                                                 "any_subopt_plastic_before_opt_plastic": any_subopt_plasticity_before_opt_plasticity,
                                                 "final_plastic": final_plastic,
-                                                "final_optimal": final_optimal
+                                                "final_optimal": final_optimal,
+                                                "nand_uncon": nand_uncon,
+                                                "nand_con": nand_con,
+                                                "nand_subopt_plastic": nand_subopt,
+                                                "nand_opt_plastic": nand_opt,
+                                                "not_uncon": not_uncon,
+                                                "not_con": not_con,
+                                                "not_subopt_plastic": not_subopt,
+                                                "not_opt_plastic": not_opt,
+                                                "any_uncon": any_uncon,
+                                                "any_con": any_con,
+                                                "any_subopt_plastic": any_subopt,
+                                                "any_opt_plastic": any_opt
                                                 })
 
 
     ### Generate overview stats ###
+    # overview_header = ["treatment",
+    #                    "total_reps",
+    #                    "any_plasticity_cnt",
+    #                    "any_adaptive_plasticity_cnt",
+    #                    "any_optimality_cnt",
+    #                    "nand_uncon_before_nand_con_cnt",
+    #                    "nand_con_cnt",
+    #                    "not_uncon_before_not_con_cnt",
+    #                    "not_con_cnt",
+    #                    "any_uncon_before_con_cnt",
+    #                    "con_cnt",
+    #                    "nand_subopt_plastic_before_nand_opt_plastic_cnt",
+    #                    "nand_opt_plastic_cnt",
+    #                    "not_subopt_plastic_before_not_opt_plastic_cnt",
+    #                    "not_opt_plastic_cnt",
+    #                    "any_subopt_plastic_before_opt_plastic_cnt",
+    #                    "any_opt_plastic_cnt"]
     overview_header = ["treatment",
                        "total_reps",
                        "any_plasticity_cnt",
@@ -368,16 +413,23 @@ def main():
                        "any_optimality_cnt",
                        "nand_uncon_before_nand_con_cnt",
                        "nand_con_cnt",
+                       "nand_uncon_cnt", # NEW
                        "not_uncon_before_not_con_cnt",
                        "not_con_cnt",
+                       "not_uncon_cnt", # NEW
                        "any_uncon_before_con_cnt",
                        "con_cnt",
+                       "uncon_cnt", # NEW
                        "nand_subopt_plastic_before_nand_opt_plastic_cnt",
                        "nand_opt_plastic_cnt",
+                       "nand_subopt_plastic_cnt", # NEW
                        "not_subopt_plastic_before_not_opt_plastic_cnt",
                        "not_opt_plastic_cnt",
+                       "not_subopt_plastic_cnt",
                        "any_subopt_plastic_before_opt_plastic_cnt",
-                       "any_opt_plastic_cnt"]
+                       "any_opt_plastic_cnt",
+                       "any_subopt_plastic_cnt" # NEW
+                       ]
     overview_fpath = os.path.join(experiment_processed_loc, "lineage_stepping_stones_overview__%s.csv" % str(datetime.datetime.now()).split(" ")[0])
     with open(overview_fpath, "w") as fp:
         fp.write(",".join(overview_header) + "\n")
@@ -413,17 +465,27 @@ def main():
 
         nand_uncon_before_nand_con_cnt = 0
         nand_con_cnt = 0
+        nand_uncon_cnt = 0
+
         not_uncon_before_not_con_cnt = 0
         not_con_cnt = 0
+        not_uncon_cnt = 0
+
         any_uncon_before_con_cnt = 0
         con_cnt = 0
+        uncon_cnt = 0
 
         nand_subopt_plastic_before_nand_opt_plastic_cnt = 0
         nand_opt_plastic_cnt = 0
+        nand_subopt_plastic_cnt = 0
+
         not_subopt_plastic_before_not_opt_plastic_cnt = 0
         not_opt_plastic_cnt = 0
+        not_subopt_plastic_cnt = 0
+
         any_subopt_plastic_before_opt_plastic_cnt = 0
         any_opt_plastic_cnt = 0
+        any_subopt_plastic_cnt = 0
 
         for rep_results in results_by_treatment[treatment]:
             # make details line for this replicate.
@@ -435,26 +497,51 @@ def main():
                 any_adaptive_plasticity_cnt += 1
             if rep_results["any_optimal"]:
                 any_optimality_cnt += 1
-            # Uncon before con
-            if rep_results["nand_uncon_before_nand_con"] != None:
+            # nand con/uncon
+            if rep_results["nand_con"]:
                 nand_con_cnt += 1
-                if rep_results["nand_uncon_before_nand_con"]: nand_uncon_before_nand_con_cnt += 1
-            if rep_results["not_uncon_before_not_con"] != None:
+            if rep_results["nand_uncon"]:
+                nand_uncon_cnt += 1
+            if rep_results["nand_uncon_before_nand_con"]:
+                nand_uncon_before_nand_con_cnt += 1
+            # not con/uncon
+            if rep_results["not_con"]:
                 not_con_cnt += 1
-                if rep_results["not_uncon_before_not_con"]: not_uncon_before_not_con_cnt += 1
-            if rep_results["any_uncon_before_any_con"] != None:
+            if rep_results["not_uncon"]:
+                not_uncon_cnt += 1
+            if rep_results["not_uncon_before_not_con"]:
+                not_uncon_before_not_con_cnt += 1
+            # any con/uncon
+            if rep_results["any_con"]:
                 con_cnt += 1
-                if rep_results["any_uncon_before_any_con"]: any_uncon_before_con_cnt += 1
-            # Sub-opt before opt
-            if rep_results["nand_subopt_plastic_before_nand_opt_plastic"] != None:
+            if rep_results["any_uncon"]:
+                uncon_cnt += 1
+            if rep_results["any_uncon_before_any_con"]:
+                any_uncon_before_con_cnt += 1
+
+            # nand sub-opt/opt
+            if rep_results["nand_subopt_plastic"]:
+                nand_subopt_plastic_cnt += 1
+            if rep_results["nand_opt_plastic"]
                 nand_opt_plastic_cnt += 1
-                if rep_results["nand_subopt_plastic_before_nand_opt_plastic"]: nand_subopt_plastic_before_nand_opt_plastic_cnt += 1
-            if rep_results["not_subopt_plastic_before_not_opt_plastic"] != None:
+            if rep_results["nand_subopt_plastic_before_nand_opt_plastic"]:
+                nand_subopt_plastic_before_nand_opt_plastic_cnt += 1
+
+            # not sub-opt/opt
+            if rep_results["not_subopt_plastic"]:
+                not_subopt_plastic_cnt += 1
+            if rep_results["not_opt_plastic"]
                 not_opt_plastic_cnt += 1
-                if rep_results["not_subopt_plastic_before_not_opt_plastic"]: not_subopt_plastic_before_not_opt_plastic_cnt += 1
-            if rep_results["any_subopt_plastic_before_opt_plastic"] != None:
+            if rep_results["not_subopt_plastic_before_not_opt_plastic"]:
+                not_subopt_plastic_before_not_opt_plastic_cnt += 1
+
+            # any sub-opt/opt
+            if rep_results["any_subopt_plastic"]:
+                any_subopt_plastic_cnt += 1
+            if rep_results["any_opt_plastic"]:
                 any_opt_plastic_cnt += 1
-                if rep_results["any_subopt_plastic_before_opt_plastic"]: any_subopt_plastic_before_opt_plastic_cnt += 1
+            if rep_results["any_subopt_plastic_before_opt_plastic"]:
+                any_subopt_plastic_before_opt_plastic_cnt += 1
         # Update details file.
         with open(details_fpath, "a") as fp:
             fp.write(treatment_details_content)
@@ -467,16 +554,23 @@ def main():
                                       any_optimality_cnt,
                                       nand_uncon_before_nand_con_cnt,
                                       nand_con_cnt,
+                                      nand_uncon_cnt,
                                       not_uncon_before_not_con_cnt,
                                       not_con_cnt,
+                                      not_uncon_cnt,
                                       any_uncon_before_con_cnt,
                                       con_cnt,
+                                      uncon_cnt,
                                       nand_subopt_plastic_before_nand_opt_plastic_cnt,
                                       nand_opt_plastic_cnt,
+                                      nand_subopt_plastic_cnt,
                                       not_subopt_plastic_before_not_opt_plastic_cnt,
                                       not_opt_plastic_cnt,
+                                      not_subopt_plastic_cnt,
                                       any_subopt_plastic_before_opt_plastic_cnt,
-                                      any_opt_plastic_cnt])) + "\n"
+                                      any_opt_plastic_cnt,
+                                      any_subopt_plastic_cnt
+                                      ])) + "\n"
     with open(overview_fpath, "a") as fp:
         fp.write(treatment_overview_content)
     print "Done"
