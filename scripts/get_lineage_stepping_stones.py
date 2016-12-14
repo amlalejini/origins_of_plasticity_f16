@@ -522,7 +522,7 @@ def main():
             # nand sub-opt/opt
             if rep_results["nand_subopt_plastic"]:
                 nand_subopt_plastic_cnt += 1
-            if rep_results["nand_opt_plastic"]
+            if rep_results["nand_opt_plastic"]:
                 nand_opt_plastic_cnt += 1
             if rep_results["nand_subopt_plastic_before_nand_opt_plastic"]:
                 nand_subopt_plastic_before_nand_opt_plastic_cnt += 1
@@ -530,7 +530,7 @@ def main():
             # not sub-opt/opt
             if rep_results["not_subopt_plastic"]:
                 not_subopt_plastic_cnt += 1
-            if rep_results["not_opt_plastic"]
+            if rep_results["not_opt_plastic"]:
                 not_opt_plastic_cnt += 1
             if rep_results["not_subopt_plastic_before_not_opt_plastic"]:
                 not_subopt_plastic_before_not_opt_plastic_cnt += 1
